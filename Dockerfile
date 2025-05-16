@@ -1,5 +1,8 @@
-
 FROM eclipse-temurin:17-jdk-jammy
 WORKDIR /app
-COPY target/microservicio-sat.jar app.jar
-ENTRYPOINT ["java", "-jar", "app.jar"]
+COPY .mvn/ .mvn
+COPY mvnw pom.xml ./
+RUN ./mvnw dependency:go-offline
+COPY src ./src
+RUN ./mvnw package -DskipTests
+ENTRYPOINT ["java", "-jar", "target/microservicio-sat.jar"]
