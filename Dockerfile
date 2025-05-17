@@ -1,5 +1,5 @@
-
-FROM eclipse-temurin:17-jdk-jammy
+]FROM eclipse-temurin:17-jdk-jammy
+EXPOSE 8080  # ¡No olvides esta línea!
 WORKDIR /app
 COPY .mvn/ .mvn
 COPY mvnw pom.xml ./
