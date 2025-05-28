@@ -1,7 +1,9 @@
 name: Docker Image CI
 
 on:
-  push:
+  push:- name: Instalar dependencias
+  run: npm install
+  working-directory: ./backend
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
